@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  mpesaAuthorizationUrl: "http://localhost:8080/api/v1/mpesa-access_token",
+  mpesaPaymentUrl: "http://localhost:8080/api/v1/mpesa-make_payments",
 };
 
 /*

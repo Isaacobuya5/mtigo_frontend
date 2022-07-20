@@ -1,0 +1,44 @@
+<!-- <div *ngFor="let meal of mealsOrdered">{{ meal.mealName}}</div> -->
+
+<section class="h-100" style="background-color: #eee;">
+    <div class="container h-100 py-5">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-10">
+  
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
+            <div>
+              <!-- <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!" class="text-body">price <i
+                    class="fas fa-angle-down mt-1"></i></a></p> -->
+            </div>
+          </div>
+            <!-- cart items goes here -->
+            <div *ngFor="let meal of (mealsOrdered | async)" class="card rounded-3 mb-4">
+                <cart-item [mealCartItem]="meal" (decreaseItem)="removeFromCart()"></cart-item> 
+            </div>  
+         <!-- <div class="card mb-4">
+            <div class="card-body p-4 d-flex flex-row">
+              <div class="form-outline flex-fill">
+                <input type="text" id="form1" class="form-control form-control-lg" />
+                <label class="form-label" for="form1">Discound code</label>
+              </div>
+              <button type="button" class="btn btn-outline-warning btn-lg ms-3">Apply</button>
+            </div>
+          </div>  -->
+
+  
+          <div class="card" *ngIf="(mealsOrdered | async)!.length > 0">
+            <div class="card-body">
+              <div class="input-group mb-3 col-md-6">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-phone"></i></span>
+                <input type="phone" class="form-control" placeholder="Phone Number" aria-label="Phone" aria-describedby="basic-addon1">
+              </div>
+              <button type="button" class="btn btn-warning btn-block btn-lg" (click)="initiatePayment()">Proceed to Pay <span >{{ amountToPay }}</span></button>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+

@@ -1,0 +1,36 @@
+<div class="card-body p-4">
+      <div class="row d-flex justify-content-between align-items-center">
+        <div class="col-md-2 col-lg-2 col-xl-2">
+          <img
+            [src]="mealCartItem.itemImage"
+            class="img-fluid rounded-3" alt="Cotton T-shirt">
+        </div>
+        <div class="col-md-3 col-lg-3 col-xl-3">
+          <p class="lead fw-normal mb-2">{{mealCartItem.itemName}}</p>
+          <!--<p><span class="text-muted">Size: </span>M <span class="text-muted">Color: </span>Grey</p>-->
+        </div>
+        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+          <button class="btn btn-primary px-4"
+            (click)="updateItemQuantityAndPrice()">
+            <i class="fas fa-plus"></i>
+          </button>
+
+          <!-- <input id="form1" min="0" name="quantity" [value]="mealCartItem.itemQuantity" type="number"
+            class="form-control form-control-sm" /> -->
+            <span id="quantity-display">{{mealCartItem.itemQuantity}}</span>
+
+          <button class="btn btn-danger px-4" (click)="decrementItemQuantityAndPrice()">
+            <i class="fas fa-minus"></i>
+          </button>
+        </div>
+        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+          <h5 id="amount-header" class="mb-0">
+            Ksh.
+            <input id="amount-input" type="text" [value]="mealCartItem.totalAmountPerItem" (change)="updateItemTotalCost($event)" /></h5>
+            <!--{"Ksh. "}}{{mealCartItem.totalAmountPerItem}}</h5> -->
+        </div>
+        <div class="col-md-1 col-lg-1 col-xl-1 text-end" (click)="deleteFromCart()">
+          <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+        </div>
+      </div>
+    </div>
